@@ -1,0 +1,677 @@
+/* 배경 컨테이너 */
+
+body {
+  overflow-x: hidden; /* 가로 스크롤 비활성화 */
+  overflow-y: overlay; /* 세로 스크롤은 필요시 활성화 */
+  margin: 0;
+}
+
+.menu {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  width: 20px; /* width: 300px;  */
+  max-height: 5px; /* height: 72vh; */
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(27, 34, 59);
+  font-size: 17px;
+  font-weight: 900;
+  opacity: 0;
+  transition: width 0.5s cubic-bezier(0.9, 0, 0.3, 0.9),
+    max-height 0.5s cubic-bezier(0.9, 0, 0.3, 0.9), opacity 0.5s ease;
+}
+
+.menu-back > img {
+  block-size: 35px;
+  cursor: pointer;
+  
+}
+
+.menu-back { 
+  padding: 5px;
+  text-align: right;
+  
+}
+
+.menu.show {
+  width: 350px;
+  opacity: 1;
+}
+
+.menu.show2 {
+  max-height: 800px;
+}
+
+.menu > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 9px;
+  text-align: center;
+}
+.li-headtitle,
+.li-headtitle1,
+.li-headtitle2 {
+   position: relative;
+  width: 250px;
+  height: 45px;
+  background-color: rgb(88, 107, 158);
+  color: white;
+  border: solid 3px;
+  border-radius: 10px;
+  display: inline-block;
+  place-content: center;
+  user-select: none;
+  z-index: 1;
+}
+
+.li-headtitle {
+  margin-bottom: 7px;
+}
+#li-headtitle-last {
+  margin-bottom: 30px;
+}
+
+.li-bodytitle-container1,
+.li-bodytitle-container2 {
+  width: 230px;
+  max-height: 0;
+  overflow: hidden;
+  border: solid 3px rgb(75, 85, 114);;
+  border-radius: 10px;
+  margin: 0 auto;
+  display: block;
+  place-content: center;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.1s linear, transform 0.2s linear, max-height 0.2s linear;
+  user-select: none;
+  cursor: pointer;
+}
+
+.li-bodytitle-container1.show,
+.li-bodytitle-container2.show {
+  opacity: 1;
+  max-height: 200px;
+  transform: translateY(0px);
+}
+
+.li-bodytitle1:hover,
+.li-bodytitle2:hover {
+  color: white;
+  background-color: rgb(75, 85, 114);
+}
+
+.search {
+  width: 300px;
+  height: 30px;
+  background: transparent;
+  outline: none;
+  border: none;
+}
+
+.search-container {
+  position: absolute;
+  right: 135px; /* 메뉴 아이콘과 간격 맞춰서 조정해 */
+  top: 3px;
+  width: 20px; /*350px*/
+  height: 45px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  border-radius: 30px;
+  border: none;
+  background-color: white;
+  opacity: 0;
+  transition: width 0.5s cubic-bezier(0.9, 0, 0.3, 0.9), opacity 0.9s ease;
+}
+
+.search-container > ::-webkit-input-placeholder {
+  font-size: 17px;
+  opacity: 1;
+}
+
+.show-search-container {
+  width: 350px;
+  opacity: 1;
+}
+
+.bg {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(img/background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+  /* 배경을 뒤로 보내기 */
+}
+
+/* 배경을 어둡게 만드는 오버레이 */
+.bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 어둡게 만들기 */
+  z-index: -1; /* 이미지 위로 오도록 설정 */
+}
+
+/* 텍스트와 버튼이 배경 위에 보이도록 설정 */
+
+/* 상단 아이콘*/
+.nav-bar {
+  position: absolute;
+  width: 150px;
+  top: 43px;
+  right: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+/* 검색 메뉴 아이콘 */
+
+.menuIcon-menu {
+  display: flex;
+}
+
+.searchInput-searchIcon {
+  display: flex;
+  block-size: 50px;
+}
+
+.searchInput-searchIcon > img {
+  block-size: 48px;
+  cursor: pointer;
+}
+
+.menuIcon-menu > img {
+  block-size: 50px;
+  cursor: pointer;
+}
+
+.logo {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 90px;
+}
+
+/* 순천미래과학고 제목 부제목 */
+
+.school-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.school {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  font-size: clamp(3px, 0.8vw, 15px);
+}
+
+.school > h1 {
+  font-size: 5.5467em;
+  margin-top: 0;
+  margin-bottom: 5px;
+  text-align: center;
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+
+.school > p {
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 1em;
+}
+
+/* 
+@media (max-width: 1873px) and (min-width: 1622px) {
+  .school > h1 {
+    font-size: 450%;
+  }
+}
+
+@media (max-width: 1621px) and (min-width: 1544px) {
+  .school > h1 {
+    font-size: 400%;
+  }
+}
+
+@media (max-width: 1543px) and (min-width: 1262px) {
+  .school > h1 {
+    font-size: 350%;
+  }
+}
+
+@media (max-width: 1261px) and (min-width: 1082px) {
+  .school > h1 {
+    font-size: 300%;
+  }
+}
+
+@media (max-width: 1081px) and (min-width: 901px) {
+  .school > h1 {
+    font-size: 250%;
+  }
+}
+
+@media (max-width: 900px) and (min-width: 721px) {
+  .school > h1 {
+    font-size: 200%;
+  }
+}
+
+@media (max-width: 720px) and (min-width: 541px) {
+  .school > h1 {
+    font-size: 150%;
+  }
+}
+
+@media (max-width: 540px) and (min-width: 0px) {
+  .school > h1 {
+    font-size: 135%;
+  }
+} */
+
+/* 로그인 버튼 */
+.login-btn {
+  width: 240px;
+  height: 54px;
+  font-size: 20px;
+  border-radius: 30px;
+  border: solid 0px;
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* 로그인 버튼에 hover가 될 때 */
+.login-btn:hover .Login1 {
+  transform: translateY(-50px);
+  transition: 500ms;
+}
+
+.login-btn:hover .Login2 {
+  transform: translateY(-50px);
+  transition: 500ms;
+}
+
+.login-btn:not(:hover) .Login1 {
+  transition: 500ms;
+}
+
+.login-btn:not(:hover) .Login2 {
+  transition: 500ms;
+}
+
+.all-login {
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.all-login > img {
+  width: 30px;
+}
+
+.all-login > p {
+  margin: 0;
+}
+
+.Login1 {
+  padding: 8.1px 0 0 0;
+}
+.Login2 {
+  width: 30px;
+  padding: 24px 0 0 0;
+}
+
+/*카드 전부*/
+
+/*로그인 폼*/
+
+.form {
+  width: 500px;
+  height: 500px;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
+}
+
+.form-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  transform: translate(-50%, -40%);
+  opacity: 0;
+  z-index: -100;
+}
+
+.form-container.show {
+  transform: translate(-50%, -50%) translateY(0);
+  opacity: 1;
+}
+
+.back-blur {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(110, 107, 107, 0.178); /* 연한 하늘색 + 투명도 */
+  backdrop-filter: blur(20px);
+  display: none;
+  z-index: 90;
+}
+
+.id-container > img {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 89%;
+  top: 18%;
+}
+
+.id-container {
+  position: relative;
+  width: 400px;
+  height: 50px;
+  transform: translate(13%);
+  align-items: center;
+  border-radius: 30px;
+  border: solid 2px rgba(194, 194, 194, 0.73);
+}
+
+.pw-container > img {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 89%;
+  top: 18%;
+}
+
+.pw-container {
+  position: relative;
+  width: 400px;
+  height: 50px;
+  transform: translate(13%);
+  align-items: center;
+  border-radius: 30px;
+  border: solid 2px rgba(194, 194, 194, 0.73);
+}
+
+.form > h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 340%;
+  margin-top: 0px;
+  margin-left: 5px;
+  color: black;
+  user-select: none;
+}
+
+.form > div {
+  display: flex;
+  justify-content: center;
+}
+
+.form > div > input {
+  width: 300px;
+  height: 25px;
+  background: transparent;
+  outline: none;
+  border: none;
+  transform: translate(-10%);
+}
+
+.form > div > input::placeholder {
+  color: black;
+  user-select: none;
+}
+
+.checkbox-pwfind > label {
+  transform: translate(-80%);
+  margin-top: 15px;
+}
+
+.checkbox-pwfind > a {
+  transform: translate(90%);
+  margin-top: 15px;
+  text-decoration: none;
+  color: black;
+}
+
+.checkbox-pwfind > a:hover {
+  text-decoration: underline;
+}
+
+.form > button {
+  transform: translate(60px, 20px);
+  width: 400px;
+  height: 58px;
+  border-radius: 30px;
+  font-size: 20px;
+  cursor: pointer;
+  border: solid 2px rgba(194, 194, 194, 0.73);
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+.form-footer {
+  transform: translate(10px, 40px);
+  flex-direction: column;
+  justify-content: center; /* 세로 중앙 정렬 */
+  align-items: center;
+}
+
+.form-footer a {
+  padding: 7px;
+  text-decoration: none;
+  color: black;
+}
+
+.form-footer a:hover {
+  text-decoration: underline;
+}
+
+.form > img {
+  transform: translate(20px, 20px);
+  cursor: pointer;
+}
+
+.school-sns {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 7px;
+  padding-left: 2px;
+}
+
+.school-sns img {
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.sns-bar {
+  z-index: 1;
+  transform: translate(-0.4px, -35px);
+  background-color: rgb(255, 255, 255);
+  width: 60px;
+  height: 117px;
+  position: absolute;
+  right: 0;
+  top: 450px;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.Introduce {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 화면 전체 높이 */
+  text-align: center;
+}
+
+.Introduce > h1 {
+  font-size: 600%;
+  font-style: normal;
+  margin: 0;
+  font-family: "Black Han Sans", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  color: rgb(1, 53, 112);
+}
+
+.Introduce h2 {
+  transform: translateY(-30px);
+  color: rgba(126, 124, 124, 0.699);
+  font-size: 40px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+}
+
+/* 초기 상태 */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(500px);
+  transition: opacity 1s ease-out, transform 0.6s ease-out;
+}
+
+/* 보여질 때 */
+.scroll-fade.show {
+  opacity: 1;
+  transform: translateY(450px);
+}
+
+.Bio-container,
+.Sw-container,
+.Iot-container {
+  width: 100vw;
+  height: 160vh;
+  position: relative;
+  margin: 50px 0;
+  border: solid black;
+}
+
+.Bio-container > div,
+.Sw-container > div,
+.Iot-container > div {
+  position: relative;
+  width: 100%;
+  height: 30%;
+
+  z-index: -1;
+}
+
+.bio-headtitle {
+  background-image: url(img/bio.png);
+}
+
+.sw-headtitle {
+  background-image: url(img/sw.jpg);
+}
+
+.iot-headtitle {
+  background-image: url(img/iot.jpg);
+}
+
+.bio-headtitle::after,
+.sw-headtitle::after,
+.iot-headtitle::after {
+  content: "";
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.bio-headtitle,
+.sw-headtitle,
+.iot-headtitle {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  font-size: 150%;
+  margin: 0;
+}
+
+.Introduce-department {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Introduce-department > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.bio-headtitle > h1,
+p,
+.sw-headtitle > h1,
+p,
+.iot-headtitle > h1,
+p {
+  margin: 0;
+}
+
+.bio-headtitle span,
+.sw-headtitle span,
+.iot-headtitle span {
+  margin: 0;
+  padding: 0;
+  font-size: 250%;
+  transform: translateY(-9px);
+}
+
+.bio-headtitle > h1,
+.sw-headtitle > h1,
+.iot-headtitle > h1 {
+  font-size: 250%;
+  font-family: "Black Han Sans", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.bio-headtitle > p,
+.sw-headtitle > p,
+.iot-headtitle > p {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <title>Suncheon Future Science High School</title>
+  </head>
+
+  <body
+    oncontextmenu="return false"
+    onselectstart="return false"
+    ondragstart="return false"
+  >
+    <div class="bg">
+      <img class="logo" src="img/logo.png" alt="학교 로고" />
+      <div class="nav-bar">
+        <div class="searchInput-searchIcon">
+          <div class="search-container" id="Search-Container">
+            <input
+              type="text"
+              placeholder="search..."
+              class="search"
+              id="Search-Input"
+              disabled
+            />
+          </div>
+          <img src="img/검색.png" alt="검색 아이콘" id="Search-Icon" />
+        </div>
+        <div class="menuIcon-menu">
+          <img src="img/메뉴.png" alt="메뉴 아이콘" id="Menu-Icon" />
+        </div>
+      </div>
+      <div class="menu">
+        <div class="menu-back">
+          <img src="img/close-menu.png" alt="">
+        </div>
+      
+        <ul>
+          <div class="li-headtitle-1">
+            <li class="li-headtitle1">학교소개</li>
+            <div class="li-bodytitle-container1">
+              <li class="li-bodytitle1">인사말</li>
+              <li class="li-bodytitle1" id="Department">학과소개</li>
+              <li class="li-bodytitle1">학교상징 및 교가</li>
+            </div>
+          </div>
+        </ul>
+
+        <ul>
+          <div class="li-headtitle-2">
+            <li class="li-headtitle2">급식안내</li>
+            <div class="li-bodytitle-container2">
+              <li class="li-bodytitle2">급식 일정표</li>
+              <li class="li-bodytitle2">원산지</li>
+            </div>
+          </div>
+        </ul>
+
+        <ul>
+          <li class="li-headtitle">공모사업</li>
+        </ul>
+        <ul>
+          <li class="li-headtitle">알림마당</li>
+        </ul>
+        <ul>
+          <li class="li-headtitle">행정마당</li>
+        </ul>
+        <ul>
+          <li class="li-headtitle">진로정보</li>
+        </ul>
+        <ul>
+          <li class="li-headtitle">입학마당</li>
+        </ul>
+        <ul>
+          <li class="li-headtitle">정보공개마당</li>
+        </ul>
+        <ul>
+          <li class="li-headtitle" id="li-headtitle-last">학습마당</li>
+        </ul>
+      </div>
+
+      <div class="school-container">
+        <div class="school">
+          <h1>Suncheon Future <br />Science High School <br /></h1>
+          <p>차세대 기술로 새로운 내일을 향해 나아가는 순천미래과학고등학교</p>
+
+          <button class="login-btn">
+            <div class="all-login">
+              <p class="Login1">Login</p>
+              <img class="Login2" src="img/usericon.png" />
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="sns-bar">
+      <div class="school-sns">
+        <img class="Youtube" src="img/Youtube.png" width="46px" height="46px" />
+
+        <img
+          class="instagram"
+          src="img/instagram.png"
+          width="40px"
+          height="40px"
+        />
+      </div>
+    </div> -->
+
+    <div class="form-container">
+      <div class="form">
+        <img
+          class="back-icon"
+          src="img/back-icon.png"
+          width="30px"
+          height="30px"
+        />
+        <h1>Login</h1>
+        <div class="id-container">
+          <input type="text" placeholder="Username" />
+          <img src="img/usericon.png" />
+        </div>
+
+        <br />
+
+        <div class="pw-container">
+          <input type="password" placeholder="Password" />
+          <img src="img/passwordicon.png" />
+        </div>
+
+        <div class="checkbox-pwfind">
+          <label for="checkbox"
+            ><input type="checkbox" id="checkbox" />비밀번호 저장</label
+          >
+          <a href="#">비밀번호 찾기 </a>
+        </div>
+
+        <button class="form-login">Login</button>
+
+        <div class="form-footer">
+          <a href="#">회원가입</a>
+          <a href="#">재학생로그인</a>
+        </div>
+      </div>
+    </div>
+    <div class="back-blur"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
